@@ -42,22 +42,22 @@ rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
 rf_classifier.fit(X_train, y_train)
 
 # Training a Logistic Regression model
-# LR_model = LogisticRegression(max_iter=800, random_state=45)
-# LR_model.fit(X_train, y_train)
+LR_model = LogisticRegression(max_iter=800, random_state=45)
+LR_model.fit(X_train, y_train)
 
 # Make predictions on the test set
-y_prediction = rf_classifier.predict(X_test)
+# y_prediction = rf_classifier.predict(X_test)
 
-# y_prediction_lr_model = LR_model.predict(X_test)
+y_prediction_lr_model = LR_model.predict(X_test)
 
 # Evaluate the model
 print("Classification Report:")
-print(classification_report(y_test, y_prediction, target_names=label_encoder.classes_))
-# print(classification_report(y_test, y_prediction_lr_model, target_names=label_encoder.classes_))
+# print(classification_report(y_test, y_prediction, target_names=label_encoder.classes_))
+print(classification_report(y_test, y_prediction_lr_model, target_names=label_encoder.classes_))
 
 print("Confusion Matrix:")
-print(confusion_matrix(y_test, y_prediction))
-# print(confusion_matrix(y_test, y_prediction_lr_model))
+# print(confusion_matrix(y_test, y_prediction))
+print(confusion_matrix(y_test, y_prediction_lr_model))
 
 
 
