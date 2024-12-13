@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: .
+command: python har_model.py --trainingdata ${{ inputs.training_data }}
+inputs:
+  training_data:
+    type: uri_file
+    path: azureml:har_data:1
+environment: azureml://registries/azureml/environments/sklearn-1.1/versions/14
+compute: azureml:COM774CW21
+experiment_name: COM774HAR_v2
+description: COM774HAR demo
